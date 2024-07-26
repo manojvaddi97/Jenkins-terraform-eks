@@ -4,6 +4,7 @@
 sudo apt update -y
 sudo apt install wget -y
 sudo apt install curl -y
+sudo apt  install awscli -y
 #Install Java
 sudo apt install fontconfig openjdk-17-jre -y
 sudo java -version >> /home/ubuntu/log.txt
