@@ -4,6 +4,7 @@ module "eks" {
 
   cluster_name    = local.cluster-name
   cluster_version = "1.30"
+  enable_irsa = true
 
   cluster_endpoint_public_access  = true
 
