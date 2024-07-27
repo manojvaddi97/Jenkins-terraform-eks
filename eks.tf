@@ -11,6 +11,7 @@ module "eks" {
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
+  cluster_security_group_id = aws_security_group.eks_cluster.id
 
   # EKS Managed Node Group(s)
 
@@ -19,8 +20,6 @@ module "eks" {
       # Starting on 1.30, AL2023 is the default AMI type for EKS managed node groups
       ami_type       = "AL2023_x86_64_STANDARD"
       instance_types = ["t3.medium"]
-      vpc_security_group_ids = [aws_security_group.eks.id]
-
       min_size     = 2
       max_size     = 3
       desired_size = 2

@@ -1,3 +1,8 @@
+resource "aws_security_group" "eks_cluster" {
+  name = "eks-cluster-sg"
+  vpc_id      = module.vpc.vpc_id
+}
+
 resource "aws_security_group_rule" "eks_inbound_https" {
   type        = "ingress"
   from_port   = 443
