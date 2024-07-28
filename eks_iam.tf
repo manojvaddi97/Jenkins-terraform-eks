@@ -8,12 +8,11 @@ resource "aws_iam_role" "eks_user_role" {
     Version = "2012-10-17"
     Statement = [
       {
-        Action = "sts:AssumeRole"
-        Principal = {
-          Service = "eks.amazonaws.com"
-        }
         Effect = "Allow"
-        Sid    = ""
+        Principal = {
+          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/manojvaddi"
+        }
+        Action = "sts:AssumeRole"
       }
     ]
   })
