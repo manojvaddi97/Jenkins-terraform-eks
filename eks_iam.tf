@@ -13,6 +13,13 @@ resource "aws_iam_role" "eks_user_role" {
           AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/manojvaddi"
         }
         Action = "sts:AssumeRole"
+      },
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "eks.amazonaws.com"
+        }
+        Action = "sts:AssumeRole"
       }
     ]
   })
