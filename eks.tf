@@ -4,14 +4,13 @@ module "eks" {
 
   cluster_name    = local.cluster-name
   cluster_version = "1.30"
-  enable_irsa = true
 
   cluster_endpoint_public_access  = true
 
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
-  cluster_security_group_id = aws_security_group.eks_cluster.id
+  control_plane_subnet_ids = module.vpc.intra_subnets
 
   # EKS Managed Node Group(s)
 

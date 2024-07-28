@@ -16,6 +16,12 @@ variable "private_subnets" {
 
 }
 
+variable "intra_subnets" {
+  description = "intra subnet CIDR"
+  type        = list(string)
+
+}
+
 variable "ec2_instance_type" {
   description = "instance type"
   type        = string

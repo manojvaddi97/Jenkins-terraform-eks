@@ -11,6 +11,7 @@ module "vpc" {
   azs                     = data.aws_availability_zones.azs.names
   private_subnets         = var.private_subnets
   public_subnets          = var.public_subnets
+  intra_subnets = var.intra_subnets
   map_public_ip_on_launch = true
 
 
